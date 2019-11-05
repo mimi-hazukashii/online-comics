@@ -1,1 +1,1 @@
-# A Simple WordPress website for selling books online
+# A simple Manga site built with the WP platform
