@@ -13,11 +13,11 @@ $(document).ready(() => {
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
     responsive: {
-        0: { items: 1 },
-        576: { items: 1 },
-        768: { items: 2 },
-        992: { items: 3 },
-        1200: { items: 4 }
+        0: { items: 2 },
+        576: { items: 2 },
+        768: { items: 3 },
+        992: { items: 4 },
+        1200: { items: 6 }
     }
   });
 

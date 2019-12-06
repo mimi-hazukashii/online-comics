@@ -10,11 +10,11 @@ a {
 }
 ::-webkit-scrollbar-track {
   background-color: #ffffff;
-	border-radius: .75rem;
-	box-shadow: inset 0 0 .75rem #00000080;
+  border-radius: .75rem;
+  box-shadow: inset 0 0 .75rem #00000080;
 }
 ::-webkit-scrollbar {
-	width: .5rem;
+  width: .5rem;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #666666;
@@ -65,23 +65,25 @@ a {
   position: relative;
   margin-bottom: 2rem;
 }
-.wrap-post img {
+.wrap-post img, #post-content img {
   width: 100%;
-  border: .125rem solid #333333;
+  border: .125rem solid #555555;
   border-radius: .5rem;
 }
 .wrap-post a:hover img {
   box-shadow: .25rem .25rem .75rem 0 #666666;
 }
-.wrap-post .views {
+.views {
   position: absolute;
-  top: .5rem;
-  right: .625rem;
   background-color: #00000080;
   color: #ffffff;
   font-size: .625rem;
   padding: .1rem .5rem;
   border-radius: 1rem;
+}
+.wrap-post .views {
+  top: .5rem;
+  right: .625rem;
 }
 .wrap-post .title {
   position: absolute;
@@ -92,11 +94,37 @@ a {
   background-color: #111111c0;
   color: #ffffff;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: .875rem;
   width: 100%;
   padding: .25rem .75rem;
   border-radius: 0 0 .5rem .5rem;
   margin: 0;
+}
+#post-content {
+  margin: 2rem 0;
+}
+#post-content h1 {
+  font-size: 1.875rem;
+}
+.relative {
+  position: relative;
+}
+.relative .views {
+  top: .625rem;
+  right: 1.75rem;
+}
+#post-content .description p {
+  font-size: .875rem;
+  line-height: 1.25rem;
+  text-align: justify;
+  margin-bottom: 0;
+}
+.wrap-sidebar {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.wrap-sidebar h2 {
+  font-size: 1.25rem;
 }
 .about {
   background-color: #222222;

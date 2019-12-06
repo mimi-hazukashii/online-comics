@@ -12,7 +12,7 @@
 </head>
 <body <?php body_class(); ?>>
   <div id="header">
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-navbar">
