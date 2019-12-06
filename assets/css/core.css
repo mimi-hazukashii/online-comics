@@ -51,6 +51,19 @@ a {
     color: #cccccc;
 }
 
+.admin {
+    color: #ffc107 !important;
+    padding: .25rem .5rem;
+    border: .05rem solid #ffc107;
+    border-radius: .5rem;
+    transition: 0.2s all;
+}
+
+.admin:hover {
+    background-color: #ffc107;
+    color: #000000 !important;
+}
+
 .title-bar {
     background-color: #555555;
     border-radius: .25rem;

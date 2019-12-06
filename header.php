@@ -40,7 +40,11 @@
                     </button>
                 </form>
                 <div class="account">
-                    <a href="#">Login</a> &vert; <a href="#">Register</a>
+                    <?php if (!is_user_logged_in()): ?>
+                        <a href="#">Login</a> &vert; <a href="#">Register</a>
+                    <?php elseif (current_user_can('administrator')): ?>
+                        <span class="admin"><i class="fas fa-star"></i> Admin</span>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
