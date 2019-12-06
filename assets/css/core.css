@@ -2,6 +2,9 @@ body {
   background-color: #000000;
   color: #ffffff;
 }
+pre {
+  color: #ffffff !important;
+}
 a {
   text-decoration: none !important;
 }

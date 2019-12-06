@@ -43,7 +43,7 @@ if (!function_exists('mimi_title_bar')) {
           <h2 class="title"><?php echo $title; ?></h2>
         </div>
         <div class="col text-right">
-          <a class="btn-view" href="<?php echo $permalink; ?>">See All&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
+          <a class="btn-view" href="<?php echo $permalink; ?>">View All&nbsp;&nbsp;<i class="fas fa-caret-right"></i></a>
         </div>
       </div>
     </div>
