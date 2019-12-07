@@ -41,6 +41,81 @@
                     }
                     wp_reset_postdata();
                     ?>
+                    <h3>Chapters</h3>
+                    <div class="chapters">
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a> <span class="new">(NEW)</span></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                        <div class="chapter row">
+                            <div class="col-10 p-0"><a href="#">Doraemon</a></div>
+                            <div class="col-2 p-0 text-right">1/1/2011</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-3">
                     <?php get_sidebar(); ?>

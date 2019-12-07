@@ -10,6 +10,7 @@ $posts = new WP_Query(array(
 if ($posts->have_posts()) {
     while ($posts->have_posts()) {
         $posts->the_post(); ?>
+        <?php for ($i = 0; $i < 5; ++$i): ?>
         <div class="wrap-sidebar">
             <div class="row">
                 <div class="col-5 pr-0">
@@ -22,6 +23,7 @@ if ($posts->have_posts()) {
                 </div>
             </div>
         </div>
+        <?php endfor; ?>
     <?php }
 }
 wp_reset_postdata();
