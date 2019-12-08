@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="collapsible-navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Popular Comics</a>
+                        <a class="nav-link" href="/popular">Popular Comics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Comics</a>
+                        <a class="nav-link" href="/all">All Comics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Upcoming</a>
+                        <a class="nav-link" href="/upcoming">Upcoming</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Categories</a>
@@ -41,7 +41,7 @@
                 </form>
                 <div class="account">
                     <?php if (!is_user_logged_in()): ?>
-                        <a href="#">Login</a> &vert; <a href="#">Register</a>
+                        <a href="/login">Login</a> &vert; <a href="/register">Register</a>
                     <?php elseif (current_user_can('administrator')): ?>
                         <span class="admin"><i class="fas fa-star"></i> Admin</span>
                     <?php endif; ?>

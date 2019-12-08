@@ -15,7 +15,7 @@ if ($posts->have_posts()) {
             <div class="row">
                 <div class="col-5 pr-0">
                     <a href="<?php the_permalink(); ?>">
-                        <img class="lazy" data-src="<?php the_field('thumbnail'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                        <img class="lazy" src="" data-src="<?php the_field('thumbnail'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                     </a>
                 </div>
                 <div class="col-7 pl-2">

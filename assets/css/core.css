@@ -135,8 +135,19 @@ a {
     margin: 0;
 }
 
+.breadcrumb {
+    background-color: transparent;
+    padding: .25rem 1rem;
+    border-radius: 0;
+    margin-bottom: .5rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: '>';
+}
+
 #post-content {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 #post-content h1 {
@@ -209,6 +220,27 @@ a {
 
 .wrap-sidebar h2 {
     font-size: 1.25rem;
+}
+
+.pagination .page-item {
+    margin: 0 .5rem;
+}
+
+.pagination .page-link {
+    font-size: .75rem;
+    background-color: #66666680;
+    color: #ffffff;
+    border: 0;
+    border-radius: .25rem;
+}
+
+.pagination .page-item:hover .page-link {
+    background-color: #666666;
+}
+
+.pagination .page-item.active .page-link {
+    cursor: default;
+    background-color: #808080;
 }
 
 .about {

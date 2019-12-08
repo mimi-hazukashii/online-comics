@@ -49,3 +49,69 @@ if (!function_exists('mimi_title_bar')) {
         </div>
     <?php }
 }
+
+if (!function_exists('mimi_sort_bar')) {
+    function mimi_sort_bar($title, $args) { ?>
+        <div class="title-bar">
+            <div class="row">
+                <div class="col">
+                    <h2><?php echo $title; ?></h2>
+                </div>
+                <div class="col text-right">
+                    <a href="#">Sort by&nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+    <?php }
+}
+
+if (!function_exists('mimi_set_post_views')) {
+    function mimi_set_post_views($post_id) {
+        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
+        if ($count === false) {
+            delete_post_meta($post_id, 'mimi_post_views_count');
+            add_post_meta($post_id, 'mimi_post_views_count', 0);
+        } else {
+            update_post_meta($post_id, 'mimi_post_views_count', ++$count);
+        }
+    }
+}
+
+if (!function_exists('mimi_get_post_views')) {
+    function mimi_get_post_views($post_id) {
+        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
+        return $count === false ? 0 : $count;
+    }
+}
+
+if (!function_exists('mimi_pagination')) {
+    function mimi_pagination($paged, $pages, $range = 2) {
+        if ($pages > 1): ?>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="<?php echo get_pagenum_link(); ?>"><i class="fas fa-angle-double-left"></i></a>
+                </li>
+                <?php for ($i = $paged - $range; $i < $paged; ++$i):
+                    if ($i >= 1): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="<?php echo get_pagenum_link($i); ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endif;
+                endfor; ?>
+                <li class="page-item active">
+                    <a class="page-link" href="<?php echo get_pagenum_link($paged); ?>"><?php echo $paged; ?></a>
+                </li>
+                <?php for ($i = $paged + 1; $i <= $paged + $range; ++$i):
+                    if ($i <= $pages): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="<?php echo get_pagenum_link($i); ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endif;
+                endfor; ?>
+                <li class="page-item">
+                    <a class="page-link" href="<?php echo get_pagenum_link($pages); ?>"><i class="fas fa-angle-double-right"></i></a>
+                </li>
+            </ul>
+        <?php endif;
+    }
+}

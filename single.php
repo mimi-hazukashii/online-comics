@@ -2,15 +2,21 @@
     <div id="post-content">
         <div class="container">
             <div class="row">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/all">All Comics</a></li>
+                    <li class="breadcrumb-item active"><?php the_title(); ?></li>
+                </ul>
                 <div class="col-lg-9 pr-5">
                     <?php
+                    mimi_set_post_views(get_the_ID());
                     if (have_posts()) {
                         while (have_posts()) {
                             the_post(); ?>
                             <div class="row">
                                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 relative">
-                                    <img class="lazy" data-src="<?php the_field('thumbnail'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-                                    <span class="views"><i class="fas fa-eye"></i> 6969</span>
+                                    <img class="lazy" src="" data-src="<?php the_field('thumbnail'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                                    <span class="views"><i class="fas fa-eye"></i> <?php echo mimi_get_post_views(get_the_ID()); ?></span>
                                 </div>
                                 <div class="col-xl-9 col-lg-8 col-md-8 col-sm-6">
                                     <h1><?php the_title(); ?></h1>
@@ -21,7 +27,7 @@
                                         <strong>Categories:</strong> <?php the_category(', '); ?>
                                     </div>
                                     <div class="post-info">
-                                        <strong>Author:</strong> <?php the_terms($post_id, 'author', '', ' ,', ''); ?>
+                                        <strong>Author:</strong> <?php the_terms(get_the_ID(), 'author', '', ', ', ''); ?>
                                     </div>
                                     <div class="post-info">
                                         <strong>Source:</strong> <?php the_field('source'); ?>
@@ -47,7 +53,7 @@
                         <?php foreach ($chapters as $chapter): $chapter = $chapter['meta']; ?>
                             <div class="chapter row">
                                 <div class="col-8 p-0">
-                                    <a href="#">Chapter <?php echo $chapter['no']; ?></a>
+                                    <a href="chapter-<?php echo $chapter['no']; ?>">Chapter <?php echo $chapter['no']; ?></a>
                                     <?php if ($chapter['new'][0] === 'new'): ?>
                                         <span class="new">(NEW)</span>
                                     <?php endif; ?>
