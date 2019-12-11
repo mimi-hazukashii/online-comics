@@ -12,6 +12,14 @@ if (!function_exists('mimi_theme_setup')) {
     add_action('after_theme_setup', 'mimi_theme_setup');
 }
 
+if (!function_exists('mimi_add_rewrite_rule')) {
+    function mimi_add_rewrite_rule() {
+        add_rewrite_rule('^([^/]+)/chapter-(\d+)$', 'index.php?name=$matches[1]&mimi_action=read&mimi_chapter=$matches[2]', 'top');
+        flush_rewrite_rules();
+    }
+    add_action('init', 'mimi_add_rewrite_rule');
+}
+
 if (!function_exists('mimi_create_author')) {
     function mimi_create_author() {
         $args = array(
@@ -26,13 +34,39 @@ if (!function_exists('mimi_create_author')) {
                 'new_item_name' => __('New Author Name', 'mimi'),
                 'menu_name' => __('Authors', 'mimi')
             ),
-            'show_in_rest' => true,
-            'query_var' => true,
-            'rewrite' => array('slug' => 'author'),
+            'show_in_rest' => true
         );
-        register_taxonomy('author', 'post', $args);
+        register_taxonomy('authors', 'post', $args);
     }
     add_action('init', 'mimi_create_author', 0);
+}
+
+if (!function_exists('mimi_add_query_vars')) {
+    function mimi_add_query_vars($vars) {
+        $vars[] = 'mimi_action';
+        $vars[] = 'mimi_chapter';
+        return $vars;
+    }
+    add_filter('query_vars', 'mimi_add_query_vars');
+}
+
+if (!function_exists('mimi_set_post_views')) {
+    function mimi_set_post_views($post_id) {
+        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
+        if ($count === false) {
+            delete_post_meta($post_id, 'mimi_post_views_count');
+            add_post_meta($post_id, 'mimi_post_views_count', 0);
+        } else {
+            update_post_meta($post_id, 'mimi_post_views_count', ++$count);
+        }
+    }
+}
+
+if (!function_exists('mimi_get_post_views')) {
+    function mimi_get_post_views($post_id) {
+        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
+        return $count === false ? '0' : $count;
+    }
 }
 
 if (!function_exists('mimi_title_bar')) {
@@ -52,36 +86,24 @@ if (!function_exists('mimi_title_bar')) {
 
 if (!function_exists('mimi_sort_bar')) {
     function mimi_sort_bar($title, $args) { ?>
-        <div class="title-bar">
+        <div class="sort-bar">
             <div class="row">
                 <div class="col">
                     <h2><?php echo $title; ?></h2>
                 </div>
                 <div class="col text-right">
-                    <a href="#">Sort by&nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sort by&nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-menu">
+                            <?php foreach ($args as $arg): ?>
+                                <a class="dropdown-item" href="<?php echo $arg['link'] ?>"><?php echo $arg['name'] ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     <?php }
-}
-
-if (!function_exists('mimi_set_post_views')) {
-    function mimi_set_post_views($post_id) {
-        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
-        if ($count === false) {
-            delete_post_meta($post_id, 'mimi_post_views_count');
-            add_post_meta($post_id, 'mimi_post_views_count', 0);
-        } else {
-            update_post_meta($post_id, 'mimi_post_views_count', ++$count);
-        }
-    }
-}
-
-if (!function_exists('mimi_get_post_views')) {
-    function mimi_get_post_views($post_id) {
-        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
-        return $count === false ? 0 : $count;
-    }
 }
 
 if (!function_exists('mimi_pagination')) {

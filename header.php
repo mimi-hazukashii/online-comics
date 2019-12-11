@@ -11,6 +11,7 @@
     <title><?php bloginfo('name') ?></title>
 </head>
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="header">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -21,10 +22,10 @@
             <div class="collapse navbar-collapse" id="collapsible-navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/popular">Popular Comics</a>
+                        <a class="nav-link" href="/popular">Popular</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/all">All Comics</a>
+                        <a class="nav-link" href="/all">All Manga</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/upcoming">Upcoming</a>

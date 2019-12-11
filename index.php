@@ -2,81 +2,74 @@
     <div id="content">
         <div class="container">
             <?php
-            mimi_title_bar(__('Recommend', 'mimi'), '#');
             $posts = new WP_Query(array(
                 'meta_query' => array(
                     array(
                         'key' => 'status',
-                        'value' => 'complete'
+                        'value' => 'upcoming',
+                        'compare' => '!='
                     )
                 )
             ));
-            ?>
-            <div class="posts-area">
+            if ($posts->have_posts()) {
+                mimi_title_bar(__('Recommend', 'mimi'), '/popular'); ?>
                 <div class="owl-carousel">
                     <?php
-                    if ($posts->have_posts()) {
-                        while ($posts->have_posts()) {
-                            $posts->the_post();
-                            get_template_part('template-parts/carousel');
-                        }
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
+                        get_template_part('template-parts/carousel');
                     }
-                    wp_reset_postdata();
                     ?>
                 </div>
-            </div>
+            <?php }
+            wp_reset_postdata(); ?>
         </div>
         <div class="container">
             <?php
-            mimi_title_bar(__('Latest Update', 'mimi'), '#');
             $posts = new WP_Query(array(
                 'meta_query' => array(
                     array(
                         'key' => 'status',
-                        'value' => 'complete'
+                        'value' => 'upcoming',
+                        'compare' => '!='
                     )
                 )
             ));
-            ?>
-            <div class="posts-area">
+            if ($posts->have_posts()) {
+                mimi_title_bar(__('Latest Update', 'mimi'), '/all'); ?>
                 <div class="row">
                     <?php
-                    if ($posts->have_posts()) {
-                        while ($posts->have_posts()) {
-                            $posts->the_post();
-                            get_template_part('template-parts/content');
-                        }
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
+                        get_template_part('template-parts/content');
                     }
-                    wp_reset_postdata();
                     ?>
                 </div>
-            </div>
+            <?php }
+            wp_reset_postdata(); ?>
         </div>
         <div class="container">
             <?php
-            mimi_title_bar(__('Upcoming', 'mimi'), '#');
             $posts = new WP_Query(array(
                 'meta_query' => array(
                     array(
                         'key' => 'status',
-                        'value' => 'complete'
+                        'value' => 'upcoming'
                     )
                 )
             ));
-            ?>
-            <div class="posts-area">
+            if ($posts->have_posts()) {
+                mimi_title_bar(__('Upcoming', 'mimi'), '/upcoming'); ?>
                 <div class="owl-carousel">
                     <?php
-                    if ($posts->have_posts()) {
-                        while ($posts->have_posts()) {
-                            $posts->the_post();
-                            get_template_part('template-parts/carousel');
-                        }
+                    while ($posts->have_posts()) {
+                        $posts->the_post();
+                        get_template_part('template-parts/carousel');
                     }
-                    wp_reset_postdata();
                     ?>
                 </div>
-            </div>
+            <?php }
+            wp_reset_postdata(); ?>
         </div>
     </div>
 <?php get_footer(); ?>

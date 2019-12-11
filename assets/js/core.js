@@ -22,13 +22,12 @@ $(document).ready(() => {
     });
 
     let scrollTop = $('#to-top');
-    $(window).scroll(function () {
-        $(scrollTop).css('opacity', $(this).scrollTop() > 100 ? '1' : '0');
+    $(window).scroll(() => {
+        $(scrollTop).css('opacity', $(this).scrollTop() > 300 ? '1' : '0');
     });
-    $(scrollTop).click(function () {
-        $('html, body').animate({
+    $(scrollTop).click(() => {
+        $('html').animate({
             scrollTop: 0
         }, 1000);
-        return false;
     });
 });
