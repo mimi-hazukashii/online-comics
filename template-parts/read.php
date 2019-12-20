@@ -15,7 +15,7 @@
 				$prev_chapter = $chapters[$i - 1] ? $chapters[$i - 1]['no'] : null;
 				$next_chapter = $chapters[$i + 1] ? $chapters[$i + 1]['no'] : null;
 			}
-			$current_server = $current_chapter_info['server'][0];
+			$current_server = $current_chapter_info['servers'][0];
 			$chapter_images = explode(PHP_EOL, $current_server['chapter_images']); ?>
 			<div class="chapter-info">
 				<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> - Chapter <?php echo $current_chapter; ?></h1>

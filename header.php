@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/css/core.css'; ?>">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/assets/images/icon.png'; ?>" type="image/png">
     <title><?php bloginfo('name'); ?></title>
 	<?php wp_head(); ?>
 </head>
