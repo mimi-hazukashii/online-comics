@@ -3,7 +3,20 @@
 		<article>
 			<?php
 			$posts = new WP_Query(array(
-				'post_per_pages' => 6
+				'post_per_pages' => 6,
+				'meta_query' => array(
+					'relation' => 'AND',
+					array(
+						'key' => 'status',
+						'value' => 'upcoming',
+						'compare' => '!='
+					), array(
+						'key' => 'mimi_post_views_count',
+						'value' => '0',
+						'compare' => '>=',
+						'type' => 'NUMERIC'
+					)
+				)
 			));
 			if ($posts->have_posts()): ?>
 				<section id="recommend">
@@ -21,7 +34,20 @@
 
 			<?php
 			$posts = new WP_Query(array(
-				'post_per_pages' => 12
+				'post_per_pages' => 12,
+				'meta_query' => array(
+					'relation' => 'AND',
+					array(
+						'key' => 'status',
+						'value' => 'upcoming',
+						'compare' => '!='
+					), array(
+						'key' => 'mimi_post_views_count',
+						'value' => '0',
+						'compare' => '>=',
+						'type' => 'NUMERIC'
+					)
+				)
 			));
 			if ($posts->have_posts()): ?>
 				<section id="latest">
@@ -39,7 +65,13 @@
 
 			<?php
 			$posts = new WP_Query(array(
-				'post_per_pages' => 6
+				'post_per_pages' => 6,
+				'meta_query' => array(
+					array(
+						'key' => 'status',
+						'value' => 'upcoming'
+					)
+				)
 			));
 			if ($posts->have_posts()): ?>
 				<section id="upcoming">
