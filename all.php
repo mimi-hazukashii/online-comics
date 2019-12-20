@@ -57,22 +57,22 @@ $menu = array(
 	)
 );
 if ($posts->have_posts()): ?>
-    <main>
-        <article>
-            <section id="all">
+	<main>
+		<article>
+			<section id="all">
 				<?php mimi_sort_bars('All', $menu); ?>
-                <div class="row">
-					<?php
-					while ($posts->have_posts()):
-						$posts->the_post();
-						get_template_part('template-parts/post');
-					endwhile;
-					?>
-                </div>
-	            <?php mimi_pagination($posts->query_vars['paged'], $posts->max_num_pages); ?>
-            </section>
-        </article>
-    </main>
+					<div class="row">
+						<?php
+						while ($posts->have_posts()):
+							$posts->the_post();
+							get_template_part('template-parts/post');
+						endwhile;
+						?>
+					</div>
+				<?php mimi_pagination($posts->query_vars['paged'], $posts->max_num_pages); ?>
+			</section>
+		</article>
+	</main>
 <?php endif;
 wp_reset_postdata();
 get_footer();

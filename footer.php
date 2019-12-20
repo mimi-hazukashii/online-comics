@@ -1,22 +1,22 @@
 <footer>
-    <div class="about">
-        <div class="row">
-            <div class="col-lg-8 col-md-12">
-                <h2>About</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <h2>Contact</h2>
-                <ul>
-                    <li><strong>Email:</strong> hazukashii.nee@gmail.com</li>
-                </ul>
-            </div>
-        </div>
+  <div class="about">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <h2>About</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <h2>Contact</h2>
+        <ul>
+          <li><strong>Email:</strong> hazukashii.nee@gmail.com</li>
+        </ul>
+      </div>
     </div>
-    <div class="copyright">
-        <p>Designed with <span class="hearts">&hearts;</span> by <a href="#">Mimi</a>.</p>
-        <p>Copyright &copy; 2019 <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>. All rights reserved.</p>
-    </div>
+  </div>
+  <div class="copyright">
+    <p>Designed with <span class="hearts">&hearts;</span> by <a href="#">Mimi</a>.</p>
+    <p>Copyright &copy; 2019 <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>. All rights reserved.</p>
+  </div>
 </footer>
 <button id="to-top"><i class="fas fa-long-arrow-alt-up"></i></button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

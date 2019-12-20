@@ -23,17 +23,13 @@
 			</div>
 			<div class="row box">
 				<div class="col-3 text-center">
-					<a class="btn btn-sm btn-outline-info" href="<?php bloginfo('url'); ?>"
-					   title="Home Page"><i class="fas fa-home"></i></a>
-					<a class="btn btn-sm btn-outline-info" href="<?php the_permalink(); ?>"
-					   title="View Info"><i class="fas fa-info-circle"></i></a>
+					<a class="btn btn-sm btn-outline-info" href="<?php bloginfo('url'); ?>" title="Home Page"><i class="fas fa-home"></i></a>
+					<a class="btn btn-sm btn-outline-info" href="<?php the_permalink(); ?>" title="View Info"><i class="fas fa-info-circle"></i></a>
 				</div>
 				<div class="col-6">
 					<div class="form-inline justify-content-center">
-						<label for="switch-chapter"></label>
 						<?php if ($prev_chapter): ?>
-							<a class="btn btn-sm btn-info px-2"
-							   href="<?php echo get_the_permalink() . "chapter-$prev_chapter"; ?>">
+							<a class="btn btn-sm btn-info px-2" href="<?php echo get_the_permalink() . "chapter-$prev_chapter"; ?>">
 								<i class="fas fa-angle-left"></i>
 							</a>
 						<?php endif; ?>
@@ -46,8 +42,7 @@
 							<?php endforeach; ?>
 						</select>
 						<?php if ($next_chapter): ?>
-							<a class="btn btn-sm btn-info px-2"
-							   href="<?php echo get_the_permalink() . "chapter-$next_chapter"; ?>">
+							<a class="btn btn-sm btn-info px-2" href="<?php echo get_the_permalink() . "chapter-$next_chapter"; ?>">
 								<i class="fas fa-angle-right"></i>
 							</a>
 						<?php endif; ?>
@@ -58,12 +53,9 @@
 				</div>
 			</div>
 			<div class="pages">
-				<?php
-				foreach ($chapter_images as $image): ?>
+				<?php foreach ($chapter_images as $image): ?>
 					<div class="page">
-						<img class="lazy" src="" data-src="<?php echo $image; ?>"
-						     alt="<?php echo get_the_title() . ' - Chapter ' . $current_chapter; ?>"
-						     title="<?php echo get_the_title() . ' - Chapter ' . $current_chapter; ?>">
+						<img class="lazy" src="" data-src="<?php echo $image; ?>" alt="<?php echo get_the_title() . ' - Chapter ' . $current_chapter; ?>" title="<?php echo get_the_title() . ' - Chapter ' . $current_chapter; ?>">
 					</div>
 				<?php endforeach; ?>
 			</div>
