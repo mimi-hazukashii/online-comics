@@ -56,6 +56,12 @@ if (!function_exists('mimi_create_templates')) {
 				), array(
 					'title' => 'Upcoming',
 					'filename' => 'upcoming.php'
+				), array(
+					'title' => 'Login',
+					'filename' => 'login.php'
+				), array(
+					'title' => 'Register',
+					'filename' => 'register.php'
 				)
 			);
 			foreach ($templates as $template) {

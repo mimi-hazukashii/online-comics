@@ -75,8 +75,36 @@ a:hover {
   font-size: 1rem;
 }
 
+.account {
+  margin-left: 1rem;
+}
+
+.account a {
+  font-size: .75rem;
+}
+
 article {
-  padding: 1rem 5rem;
+  padding: 2rem 5rem;
+}
+
+article .main-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#register, #login {
+  background-color: #222222;
+  padding: 1rem 3rem;
+  border-radius: .5rem;
+  margin: 0 15rem;
+}
+
+#status {
+  text-align: center;
+  color: #cf6679;
+  font-size: .875rem;
+  font-weight: bold;
 }
 
 .title-bars {
