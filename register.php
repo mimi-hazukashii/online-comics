@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
                     passed = false;
                 }
 
-                if (passed) document.getElementById('submit').click()
+                if (passed) document.getElementById('submit').click();
             });
         })(jQuery);
     </script>

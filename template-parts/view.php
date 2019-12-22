@@ -9,8 +9,9 @@
                             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6" style="position: relative;">
                                 <img class="lazy" src="" data-src="<?php echo mimi_get_post_thumbnail(); ?>"
                                      alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-                                <span class="views"><i
-                                            class="fas fa-eye"></i> <?php echo mimi_get_post_views(); ?></span>
+                                <span class="views">
+                                    <i class="fas fa-eye"></i> <?php echo mimi_get_post_views(); ?>
+                                </span>
                             </div>
                             <div class="col-xl-9 col-lg-8 col-md-8 col-sm-6">
                                 <h1><?php the_title(); ?></h1>

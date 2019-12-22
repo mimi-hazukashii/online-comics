@@ -10,6 +10,7 @@ if (!function_exists('mimi_theme_setup')) {
         load_theme_textdomain('mimi', get_template_directory_uri() . '/languages');
 
         add_theme_support('automatic-feed-links');
+        add_theme_support('title-tags');
     }
     add_action('after_setup_theme', 'mimi_theme_setup');
 }
@@ -17,8 +18,9 @@ if (!function_exists('mimi_theme_setup')) {
 if (!function_exists('mimi_maintenance')) {
     function mimi_maintenance() {
         if (WP_MAINTENANCE && !current_user_can('administrator')) {
-            $message = '<h1>' . get_bloginfo('name') . ' Maintenance</h1><p>Time to relax your hand and drink tea!</p>';
-            $title = get_bloginfo('name') . ' Maintenance';
+            $name = get_bloginfo('name');
+            $message = "<h1>$name Maintenance</h1><p>Time to relax your hand and drink tea!</p>";
+            $title = "$name Maintenance";
             wp_die($message, $title, array(
                 'response' => 503
             ));
@@ -148,8 +150,9 @@ if (!function_exists('mimi_sort_bars')) {
                         <span class="sort dropdown-toggle" data-toggle="dropdown">Sort by</span>
                         <div class="dropdown-menu">
                             <?php foreach ($sort as $item): ?>
-                                <a class="dropdown-item"
-                                   href="<?php echo $item['url']; ?>"><?php echo $item['name']; ?></a>
+                                <a class="dropdown-item" href="<?php echo $item['url']; ?>">
+                                    <?php echo $item['name']; ?>
+                                </a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -164,8 +167,9 @@ if (!function_exists('mimi_pagination')) {
         if ($pages > 1): ?>
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <a class="page-link" href="<?php echo get_pagenum_link(); ?>"><i
-                                class="fas fa-angle-double-left"></i></a>
+                    <a class="page-link" href="<?php echo get_pagenum_link(); ?>">
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
                 </li>
                 <?php for ($i = $paged - $range; $i < $paged; ++$i):
                     if ($i >= 1): ?>
@@ -185,8 +189,9 @@ if (!function_exists('mimi_pagination')) {
                     <?php endif;
                 endfor; ?>
                 <li class="page-item">
-                    <a class="page-link" href="<?php echo get_pagenum_link($pages); ?>"><i
-                                class="fas fa-angle-double-right"></i></a>
+                    <a class="page-link" href="<?php echo get_pagenum_link($pages); ?>">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
                 </li>
             </ul>
         <?php endif;

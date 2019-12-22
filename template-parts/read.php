@@ -24,10 +24,12 @@
             </div>
             <div class="row box">
                 <div class="col-3 text-center">
-                    <a class="btn btn-sm btn-outline-info" href="<?php bloginfo('url'); ?>" title="Home Page"><i
-                                class="fas fa-home"></i></a>
-                    <a class="btn btn-sm btn-outline-info" href="<?php the_permalink(); ?>" title="View Info"><i
-                                class="fas fa-info-circle"></i></a>
+                    <a class="btn btn-sm btn-outline-info" href="<?php bloginfo('url'); ?>" title="Home Page">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <a class="btn btn-sm btn-outline-info" href="<?php the_permalink(); ?>" title="View Info">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
                 </div>
                 <div class="col-6">
                     <div class="form-inline justify-content-center">

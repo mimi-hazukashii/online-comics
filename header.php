@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/css/core.css'; ?>">
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/assets/images/icon.png'; ?>"
-          type="image/png">
+    <link rel="icon" href="<?php echo get_template_directory_uri() . '/assets/images/icon.png'; ?>" type="image/png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title><?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -52,7 +50,10 @@
                 <?php if (!is_user_logged_in()): ?>
                     <a href="/login">Login</a> &vert; <a href="/register">Register</a>
                 <?php elseif (current_user_can('administrator')): ?>
-                    <a href="<?php echo get_dashboard_url(); ?>">Admin</a>
+                    <a href="<?php echo get_dashboard_url(); ?>">Admin</a> &vert;
+                    <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
+                <?php elseif (current_user_can('subscriber')): ?>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
                 <?php endif; ?>
             </div>
         </div>
