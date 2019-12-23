@@ -6,10 +6,8 @@ Template Name: Login
 ob_start();
 get_header();
 
-if (is_user_logged_in()) {
-    header('Location: '.home_url());
-    wp_redirect(home_url());
-}
+if (is_user_logged_in())
+    echo '<script>location.href = "/";</script>';
 
 if (isset($_POST['submit'])) {
     $username = isset($_POST['username']) ? $_POST['username'] : null;
@@ -28,10 +26,8 @@ if (isset($_POST['submit'])) {
     }
 
     wp_signon($userdata);
-//    wp_redirect(home_url());
-    exit(0);
-}
-?>
+    echo '<script>location.href = "/";</script>';
+} ?>
     <main>
         <article>
             <h1 class="main-title">Login</h1>

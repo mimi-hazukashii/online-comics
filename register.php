@@ -3,6 +3,7 @@
 Template Name: Register
 */
 
+ob_start();
 get_header();
 
 if (isset($_POST['submit'])) {
@@ -15,15 +16,18 @@ if (isset($_POST['submit'])) {
     $error = false;
     $err_msg = null;
 
-    if (strlen($userdata['user_login']) < 3 || strlen($userdata['user_pass']) < 6) {
+    if (strlen($userdata['user_login']) < 3) {
         $error = true;
-        $err_msg = 'Invalid username or password, please try again!';
+        $err_msg = 'Username must be at least 3 characters';
+    } elseif (strlen($userdata['user_pass']) < 6) {
+        $error = true;
+        $err_msg = 'Password must be at least 6 characters';
     } elseif (username_exists($userdata['user_login'])) {
         $error = true;
         $err_msg = 'Username is exists, please try again!';
     } else {
         wp_insert_user($userdata);
-        echo '<script>alert("Successfully register, please login!");</script>';
+        echo '<script>alert("Successfully register, please login!"); location.href = "/login";</script>';
     }
 
     if ($error) {
@@ -95,3 +99,4 @@ if (isset($_POST['submit'])) {
     </script>
 
 <?php get_footer();
+ob_end_flush();
