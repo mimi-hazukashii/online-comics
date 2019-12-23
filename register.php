@@ -33,8 +33,7 @@ if (isset($_POST['submit'])) {
     if ($error) {
         echo "<script>alert('$err_msg'); location.href = '/register';</script>";
     }
-}
-?>
+} ?>
     <main>
         <article>
             <h1 class="main-title">Register</h1>
@@ -76,7 +75,6 @@ if (isset($_POST['submit'])) {
                 const cfm = $('#confirm').val();
 
                 const statusDOM = $('#status');
-                console.log(statusDOM);
 
                 if (usr.length < 3) {
                     statusDOM.text('Username must be at least 3 characters!');

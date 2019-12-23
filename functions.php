@@ -10,7 +10,7 @@ if (!function_exists('mimi_theme_setup')) {
         load_theme_textdomain('mimi', get_template_directory_uri() . '/languages');
 
         add_theme_support('automatic-feed-links');
-        add_theme_support('title-tags');
+        add_theme_support('title-tag');
     }
     add_action('after_setup_theme', 'mimi_theme_setup');
 }

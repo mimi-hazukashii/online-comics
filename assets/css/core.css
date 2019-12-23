@@ -83,6 +83,15 @@ a:hover {
     font-size: .75rem;
 }
 
+.account .admin-tag {
+    cursor: pointer;
+    background-color: #ffc107;
+    color: #000000;
+    font-size: .75rem;
+    padding: .125rem .5rem;
+    border-radius: .25rem;
+}
+
 article {
     padding: 2rem 5rem;
 }

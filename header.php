@@ -50,8 +50,22 @@
                 <?php if (!is_user_logged_in()): ?>
                     <a href="/login">Login</a> &vert; <a href="/register">Register</a>
                 <?php elseif (current_user_can('administrator')): ?>
-                    <a href="<?php echo get_dashboard_url(); ?>">Admin</a> &vert;
-                    <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
+                    <div class="dropdown">
+                        <span class="dropdown-toggle admin-tag" data-toggle="dropdown">Admin</span>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<?php echo get_dashboard_url(); ?>">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                            <?php if (is_single()): ?>
+                                <a class="dropdown-item" href="<?php echo get_edit_post_link(); ?>">
+                                    <i class="fas fa-edit"></i> Edit Post
+                                </a>
+                            <?php endif; ?>
+                            <a class="dropdown-item" href="<?php echo wp_logout_url(home_url()); ?>">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
                 <?php elseif (current_user_can('subscriber')): ?>
                     <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
                 <?php endif; ?>
