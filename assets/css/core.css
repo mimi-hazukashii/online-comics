@@ -92,6 +92,10 @@ a:hover {
     border-radius: .25rem;
 }
 
+.dropdown-menu {
+    left: -1.5rem;
+}
+
 article {
     padding: 2rem 5rem;
 }

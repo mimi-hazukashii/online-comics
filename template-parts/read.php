@@ -12,8 +12,8 @@
                 ++$i;
             if ($i >= 0 && $i < $count_chapters) {
                 $current_chapter_info = $chapters[$i];
-                $prev_chapter = $chapters[$i - 1] ? $chapters[$i - 1]['no'] : null;
-                $next_chapter = $chapters[$i + 1] ? $chapters[$i + 1]['no'] : null;
+                $prev_chapter = $chapters[$i + 1] ? $chapters[$i + 1]['no'] : null;
+                $next_chapter = $chapters[$i - 1] ? $chapters[$i - 1]['no'] : null;
             }
             $current_server = $current_chapter_info['servers'][0];
             $chapter_images = explode(PHP_EOL, $current_server['chapter_images']); ?>
@@ -40,12 +40,12 @@
                             </a>
                         <?php endif; ?>
                         <select class="form-control form-control-sm w-50" id="switch-chapter">
-                            <?php foreach ($chapters as $chapter): ?>
-                                <option value="<?php echo get_the_permalink() . 'chapter-' . $chapter['no']; ?>"
-                                    <?php if ($chapter['no'] === $current_chapter) echo 'selected'; ?>>
-                                    Chapter <?php echo $chapter['no']; ?>
+                            <?php for ($i = $count_chapters - 1; $i >= 0; --$i): ?>
+                                <option value="<?php echo get_the_permalink() . 'chapter-' . $chapters[$i]['no']; ?>"
+                                    <?php if ($chapters[$i]['no'] === $current_chapter) echo 'selected'; ?>>
+                                    Chapter <?php echo $chapters[$i]['no']; ?>
                                 </option>
-                            <?php endforeach; ?>
+                            <?php endfor; ?>
                         </select>
                         <?php if ($next_chapter): ?>
                             <a class="btn btn-sm btn-info px-2"
