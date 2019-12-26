@@ -106,12 +106,15 @@ if (!function_exists('mimi_create_author')) {
 if (!function_exists('mimi_set_post_views')) {
     function mimi_set_post_views() {
         $post_id = get_the_ID();
-        $count = get_post_meta($post_id, 'mimi_post_views_count', true);
-        if ($count === false) {
-            delete_post_meta($post_id, 'mimi_post_views_count');
-            add_post_meta($post_id, 'mimi_post_views_count', 0);
-        } else {
-            update_post_meta($post_id, 'mimi_post_views_count', ++$count);
+        $list_views = array('mimi_post_views_count', 'mimi_views_day', 'mimi_views_week', 'mimi_views_month');
+        foreach ($list_views as $view) {
+            $count = get_post_meta($post_id, $view, true);
+            if ($count === false) {
+                delete_post_meta($post_id, $view);
+                add_post_meta($post_id, $view, 0);
+            } else {
+                update_post_meta($post_id, $view, ++$count);
+            }
         }
     }
 }
@@ -121,6 +124,26 @@ if (!function_exists('mimi_get_post_views')) {
         $count = get_post_meta(get_the_ID(), 'mimi_post_views_count', true);
         return $count ? $count : '0';
     }
+}
+
+if (!function_exists('mimi_update_post_views')) {
+    function mimi_update_post_views() {
+        $update = get_option('mimi_views');
+        if ($update === false)
+            add_option('mimi_views', 0, null, 'no');
+        else {
+            $date = getdate();
+            if ($update !== $date['mday']) {
+                update_option('mimi_views', $date['mday']);
+                delete_post_meta_by_key('mimi_views_day');
+                if ($date['wday'] === 1)
+                    delete_post_meta_by_key('mimi_views_week');
+                if ($date['mday'] === 1)
+                    delete_post_meta_by_key('mimi_views_month');
+            }
+        }
+    }
+    add_action('init', 'mimi_update_post_views', 0);
 }
 
 if (!function_exists('mimi_title_bars')) {

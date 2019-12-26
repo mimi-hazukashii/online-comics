@@ -4,17 +4,13 @@
             <?php
             $posts = new WP_Query(array(
                 'post_per_pages' => 6,
+                'orderby' => 'meta_value_num',
+                'meta_key' => 'mimi_views_week',
                 'meta_query' => array(
-                    'relation' => 'AND',
                     array(
                         'key' => 'status',
                         'value' => 'upcoming',
                         'compare' => '!='
-                    ), array(
-                        'key' => 'mimi_post_views_count',
-                        'value' => '0',
-                        'compare' => '>=',
-                        'type' => 'NUMERIC'
                     )
                 )
             ));

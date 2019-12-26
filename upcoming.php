@@ -5,38 +5,34 @@
 
 get_header();
 
-$order = 'DESC';
-$order_by = 'date';
-
-if (isset($_GET['sort'])) {
-    switch ($_GET['sort']) {
-        case 'asc':
-            $order = 'ASC';
-            $order_by = 'title';
-            break;
-        case 'desc':
-            $order = 'DESC';
-            $order_by = 'title';
-            break;
-        default:
-            $order = 'DESC';
-            $order_by = 'date';
-    }
-}
-
-$posts = new WP_Query(array(
+$args = array(
     'post_per_pages' => get_option('post_per_pages'),
     'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-    'order' => $order,
-    'orderby' => $order_by,
     'meta_query' => array(
-        'relation' => 'AND',
         array(
             'key' => 'status',
             'value' => 'upcoming'
         )
     )
-));
+);
+
+if (isset($_GET['sort'])) {
+    switch ($_GET['sort']) {
+        case 'asc':
+            $args['order'] = 'ASC';
+            $args['orderby'] = 'title';
+            break;
+        case 'desc':
+            $args['order'] = 'DESC';
+            $args['orderby'] = 'title';
+            break;
+        default:
+            $args['order'] = 'DESC';
+            $args['orderby'] = 'date';
+    }
+}
+
+$posts = new WP_Query($args);
 
 $menu = array(
     array(

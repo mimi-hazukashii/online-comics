@@ -1,10 +1,6 @@
 body {
     background-color: #121212;
-    color: #ffffffde;
-}
-
-pre {
-    color: #ffffffde !important;
+    color: #e0e0e0;
 }
 
 ::-webkit-scrollbar {
@@ -25,35 +21,31 @@ pre {
 
 a {
     text-decoration: none !important;
-    color: #bb86fc;
-}
-
-a:hover {
-    color: #c699fc;
+    color: #03dac6;
 }
 
 .navbar {
-    background-color: #ffffff0d;
+    background-color: #222222;
     padding: .25rem 5rem;
 }
 
 .navbar .navbar-brand {
-    color: #ffffffde;
+    color: #e0e0e0;
     font-size: 1.25rem;
 }
 
 .navbar .navbar-nav .nav-link {
-    color: #ffffff61;
+    color: #a0a0a0;
     font-size: 1rem;
 }
 
 .navbar .navbar-nav .nav-item:hover .nav-link {
-    color: #ffffff99;
+    color: #e0e0e0;
 }
 
 .navbar .navbar-toggler {
-    background-color: #ffffff1f;
-    color: #ffffff61;
+    background-color: #6c6c6c;
+    color: #a0a0a0;
 }
 
 .search-form {
