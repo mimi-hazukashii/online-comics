@@ -4,12 +4,7 @@ get_header();
 $args = array(
     'post_per_pages' => get_option('post_per_pages'),
     'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'authors',
-            'terms' => get_queried_object()->term_id,
-        )
-    ),
+    'category_name' => get_queried_object()->name,
     'meta_query' => array(
         array(
             'key' => 'status',
@@ -24,8 +19,8 @@ $posts = new WP_Query($args);
 if ($posts->have_posts()): ?>
     <main>
         <article>
-            <section id="archive">
-                <?php mimi_sort_bars('Author: ' . get_queried_object()->name, null); ?>
+            <section id="category">
+                <?php mimi_sort_bars('Category: ' . get_queried_object()->name, null); ?>
                 <div class="row">
                     <?php
                     while ($posts->have_posts()):

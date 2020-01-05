@@ -24,6 +24,10 @@ a {
     color: #03dac6;
 }
 
+a:hover {
+    color: #0ddbc8;
+}
+
 .navbar {
     background-color: #222222;
     padding: .25rem 5rem;

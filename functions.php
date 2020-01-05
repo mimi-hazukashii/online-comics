@@ -135,11 +135,12 @@ if (!function_exists('mimi_update_post_views')) {
             $date = getdate();
             if ($update !== $date['mday']) {
                 update_option('mimi_views', $date['mday']);
-                delete_post_meta_by_key('mimi_views_day');
                 if ($date['wday'] === 1)
                     delete_post_meta_by_key('mimi_views_week');
                 if ($date['mday'] === 1)
                     delete_post_meta_by_key('mimi_views_month');
+            } else {
+                delete_post_meta_by_key('mimi_views_day');
             }
         }
     }
@@ -168,18 +169,20 @@ if (!function_exists('mimi_sort_bars')) {
                 <div class="col">
                     <h2><?php echo $title; ?></h2>
                 </div>
-                <div class="col text-right">
-                    <div class="dropdown">
-                        <span class="sort dropdown-toggle" data-toggle="dropdown">Sort by</span>
-                        <div class="dropdown-menu">
-                            <?php foreach ($sort as $item): ?>
-                                <a class="dropdown-item" href="<?php echo $item['url']; ?>">
-                                    <?php echo $item['name']; ?>
-                                </a>
-                            <?php endforeach; ?>
+                <?php if ($sort): ?>
+                    <div class="col text-right">
+                        <div class="dropdown">
+                            <span class="sort dropdown-toggle" data-toggle="dropdown">Sort by</span>
+                            <div class="dropdown-menu">
+                                <?php foreach ($sort as $item): ?>
+                                    <a class="dropdown-item" href="<?php echo $item['url']; ?>">
+                                        <?php echo $item['name']; ?>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     <?php }
@@ -227,5 +230,29 @@ if (!function_exists('mimi_get_post_thumbnail')) {
         if (empty($thumbnail))
             $thumbnail = DEFAULT_POST_THUMBNAIL;
         return $thumbnail;
+    }
+}
+
+function fav($user_id, $post_id, $action) {
+    $favorite = get_user_meta($user_id, 'mimi_favorite', true);
+    if (!$favorite)
+        add_user_meta($user_id, 'mimi_favorite', array($post_id));
+    else {
+        if ($action === 'add') {
+            $dup = false;
+            foreach ($favorite as $fav) {
+                if ($fav === $post_id) {
+                    $dup = true;
+                    break;
+                }
+            }
+            if (!$dup) {
+                array_push($favorite, $post_id);
+                update_user_meta($user_id, 'mimi_favorite', $favorite);
+            }
+        }
+        elseif ($action === 'remove') {
+            delete_user_meta($user_id, 'mimi_favorite');
+        }
     }
 }
