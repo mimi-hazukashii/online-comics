@@ -49,9 +49,13 @@
             <div class="account">
                 <?php if (!is_user_logged_in()): ?>
                     <a href="/login">Login</a> &vert; <a href="/register">Register</a>
-                <?php elseif (current_user_can('administrator')): ?>
+                <?php elseif (current_user_can('administrator') || current_user_can('editor')): ?>
                     <div class="dropdown">
-                        <span class="dropdown-toggle admin-tag" data-toggle="dropdown">Admin</span>
+                        <?php if (current_user_can('administrator')): ?>
+                            <span class="dropdown-toggle admin-tag" data-toggle="dropdown">Admin</span>
+                        <?php else: ?>
+                            <span class="dropdown-toggle admin-tag" data-toggle="dropdown">Uploader</span>
+                        <?php endif; ?>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="<?php echo get_dashboard_url(); ?>">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
